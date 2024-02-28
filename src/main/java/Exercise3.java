@@ -11,26 +11,26 @@ public class Exercise3 {
     */
 
     public static String extractURL(String text) {
-        String regex = "write your regex pattern here!";  // TODO
-
-        Pattern pattern = Pattern.compile(regex);
+        String Regex = "(http|https)://[^\\s]*";
+        Pattern pattern = Pattern.compile(Regex);
         Matcher matcher = pattern.matcher(text);
-
-        if (matcher.find()) {
-            return matcher.group();
+        if (matcher.find()){
+            return (matcher.group());
         }
-        else{
+        else
             return null;
-        }
     }
+
 
     /*
     implement the method below to validate an email address
      */
 
     public static boolean validateEmail(String email) {
-        // TODO
-        return false;
+        String regex = "[^\\s]*@[^\\s]*.[^\\s]*";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.find();
     }
 
     /*
@@ -38,9 +38,14 @@ public class Exercise3 {
     */
 
     public static List<String> findWordsWithRepeatLetters(String input) {
-        List<String> wordsWithRepeatLetters = new ArrayList<>();
-        return wordsWithRepeatLetters;
-        // TODO
+        List<String> wordsWithRepeat = new ArrayList<>();
+        String regex = "\\w*(\\w)\\w*\\1\\w*";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(input);
+        while(matcher.find()){
+            wordsWithRepeat.add(matcher.group());
+        }
+        return wordsWithRepeat;
     }
 
     /*
@@ -51,8 +56,13 @@ public class Exercise3 {
 
     public static List<String> findReapetdWords(String input) {
         List<String> repeatedWords = new ArrayList<>();
+        String regex = "(\\w{2,})\\1";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(input);
+        while(matcher.find()){
+            repeatedWords.add(matcher.group());
+        }
         return repeatedWords;
-        // TODO
     }
 
     public static void main(String[] args) {

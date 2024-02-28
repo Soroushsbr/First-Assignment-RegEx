@@ -15,7 +15,7 @@ class Test1 {
 
     @Test
     void extractURLTest1() {
-        String text = "This is a website: https://www.shahidbeheshti.ir";
+        String text = "This \"No URL in this text\"is a website: https://www.shahidbeheshti.ir";
         String expected = "https://www.shahidbeheshti.ir";
         assertEquals(expected, handle.extractURL(text));
     }
